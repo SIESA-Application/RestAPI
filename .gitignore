@@ -1,0 +1,6 @@
+# .env is gonna have sensitive information
+.env
+
+# node_modules is gonna be installed everytime we download the repository to a new machine.
+# Can be created by running npm install in the new machine.
+node_modules
