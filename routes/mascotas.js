@@ -1,17 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const Mascota = require('../models/mascota')
 
 
 //We want to create some routes for:
 
 // Getting all
-router.get('/', (req, res) => {
-    res.send('Hello World!');
+router.get('/', async (req, res) => {
+    try{
+        const mascotas = await Mascota.find();
+        res.json(mascotas)
+    } catch(err){
+        res.status(500).json({message: err.message})
+    };
 });
 
 // Getting one
 router.get('/:id', (req, res) => {
-
+ res.send(req.params.id)
 });
 
 // Creating one
